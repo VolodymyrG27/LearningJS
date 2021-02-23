@@ -50,3 +50,70 @@ btns.forEach(btn => {
 const btn = document.createElement('button');
 btn.classList.add('red');
 wrapper.append(btn);
+
+//SetTimeOut
+
+
+/*const time = setTimeout(function () {
+    console.log('its 2 sec');
+}, 2000);*/
+
+/*
+function logger() {
+    console.log('its 3');
+}
+*/
+//const secondTime = setTimeout(logger, 3000);
+/*
+const btnSet = document.querySelector('.btn');
+let timerId,
+    i = 0;
+
+btnSet.addEventListener('click', () => {
+    //const timerId = setTimeout(logger, 3000);
+    timerId = setInterval(logger, 1000); //SETINTERVAL Щоб скрипт повторявся через назначену кількість часу
+});
+
+function logger() {
+
+    if (i === 3) {
+        clearInterval(timerId);
+    }
+    console.log('its 3');
+    i++;
+}
+*/
+//Рекурсивний виклик setTimeout для того щоб функція визивала себе в середені
+//тому що якщо функція важка то setTimeout не буде чекати на функцію
+//Приклад
+/*
+let id = setTimeout(function log() {
+    console.log('Rekursion');
+    id = setTimeout(log, 500);
+}, 500);
+*/
+
+//Example kwadrat
+
+const btnSet = document.querySelector('.btn');
+let timerId,
+    i = 0;
+
+function myAnimation() {
+    const elem = document.querySelector('.box');
+    let position = 0;
+
+    const id = setInterval(frame, 10);
+
+    function frame() {
+        if (position == 300) {
+            clearInterval(id);
+        } else {
+            position++;
+            elem.style.top = position + 'px';
+            elem.style.left = position + 'px';
+        }
+    }
+}
+
+btnSet.addEventListener('click', myAnimation);
